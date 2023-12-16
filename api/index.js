@@ -7,7 +7,7 @@ mongoose
     "mongodb+srv://biswa:biswa@estate.njsibiq.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => {
-    console.log("Connected to DB");
+    console.log("Connected to DB successfully");
   })
   .catch((err) => {
     console.log(err);
