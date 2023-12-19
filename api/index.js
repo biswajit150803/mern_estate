@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
+import cookieParser from "cookie-parser";
 mongoose
   .connect(
     "mongodb+srv://biswa:biswa@estate.njsibiq.mongodb.net/?retryWrites=true&w=majority"
@@ -14,6 +15,7 @@ mongoose
   });
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 app.listen(3000, () => {
   console.log("server on port 3000");
 });
