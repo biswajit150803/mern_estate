@@ -21,11 +21,11 @@ export const signin = async (req, res,next) => {
   try {
     const validUser=await User.findOne({email});
     if(!validUser){
-      return next(errorHandler(404,"User not found!"));
+      return next(errorHandler(404,'User not found!'));
     }
     const validPassword=bcryptjs.compareSync(password,validUser.password);
       if(!validPassword){
-        return next(errorHandler(401,"Invalid Credentials"));
+        return next(errorHandler(401,'Invalid Credentials'));
       }
       const token=jwt.sign({id:validUser._id},'abcdefgh');
       const {password:pass,...rest}=validUser._doc;
